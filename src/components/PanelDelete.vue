@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, onBeforeUpdate, watch } from "vue";
+import { ref, computed, watch } from "vue";
 import getImage from "@utils/getImage.js";
 const BASE_PATH = import.meta.env.BASE_URL;
 const props = defineProps({
@@ -29,9 +29,13 @@ const emit = defineEmits(["deleteProduct"]);
 const quantityDelete = defineModel("quantityDelete");
 
 function handleDelete() {
-  console.log("handleDelete");
+  panelQuantityHidden.value = true;
   emit("deleteProduct");
 }
+watch(()=> props.deleteIdProduct,(newValue)=> {
+  panelQuantityHidden.value = true;
+})
+
 </script>
 <template>
   <div class="panel" :class="{ 'active-skeleton': props.isActive }">
