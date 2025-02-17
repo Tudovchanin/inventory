@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUpdate, watch } from "vue";
 import getImage from "@utils/getImage.js";
-
+const BASE_PATH = import.meta.env.BASE_URL;
 const props = defineProps({
   isActive: {
     type: Boolean,
@@ -21,7 +21,7 @@ const props = defineProps({
 
 const panelQuantityHidden = ref(true);
 const pathImg = computed(() => {
-  return `../assets/product-id-${props.deleteIdProduct.id}.${props.deleteIdProduct.extensionImg}`;
+  return `${BASE_PATH}product-id-${props.deleteIdProduct.id}.${props.deleteIdProduct.extensionImg}`;
 });
 
 const emit = defineEmits(["deleteProduct"]);

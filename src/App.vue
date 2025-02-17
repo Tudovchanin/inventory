@@ -7,13 +7,14 @@ import PanelDelete from "@components/PanelDelete.vue";
 import VerticalSkeleton from "@components/VerticalSkeleton.vue";
 import HorizontalSkeleton from "@components/HorizontalSkeleton.vue";
 
+const BASE_PATH = import.meta.env.BASE_URL;
 // Первый инвентарь
 const stateInventory_1 = markRaw({
   column: 5,
   row: 5,
   localStorageKey: "inventory_1",
   imgProduct: {
-    pathImg: "../assets/product-id-",
+    pathImg: `${BASE_PATH}product-id-`,
     extension: ".png",
   },
 });
@@ -31,7 +32,7 @@ const stateInventory_2 = markRaw({
   row: 5,
   localStorageKey: "inventory_2",
   imgProduct: {
-    pathImg: "../assets/product-id-",
+    pathImg: `${BASE_PATH}product-id-`,
     extension: ".png",
   },
 });
@@ -159,13 +160,13 @@ function setFalse(reactiveValue) {
   <div class="wrapper-content">
     <div class="container-card">
       <div data-id="1" @click="handleClickCard" class="card">
-        <img src="./assets/product-id-1.png" alt="product" />
+        <img src="/product-id-1.png" alt="product" />
       </div>
       <div data-id="2" @click="handleClickCard" class="card">
-        <img src="./assets/product-id-2.png" alt="product" />
+        <img src="/product-id-2.png" alt="product" />
       </div>
       <div data-id="3" @click="handleClickCard" class="card">
-        <img src="./assets/product-id-3.png" alt="product" />
+        <img src="/product-id-3.png" alt="product" />
       </div>
     </div>
 
